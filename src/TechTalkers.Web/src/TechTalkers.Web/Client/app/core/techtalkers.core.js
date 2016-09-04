@@ -12,5 +12,4 @@ var app;
         }
     })(core = app.core || (app.core = {}));
 })(app || (app = {}));
-
 //# sourceMappingURL=techtalkers.core.js.map

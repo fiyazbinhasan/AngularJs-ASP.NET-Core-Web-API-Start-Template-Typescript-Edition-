@@ -9,14 +9,14 @@
 
 <body ng-app="techtalkers.core" ng-cloak>
 
-    <div ng-controller="AppCtrl" layout="column" layout-fill ng-cloak>
+    <div ng-controller="CommonController as vm" layout="column" layout-fill ng-cloak>
         <section layout="row" flex>
             <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
                 <md-toolbar class="md-theme-indigo">
                     <h1 class="md-toolbar-tools" layout-align="center center">Tech Talkers</h1>
                 </md-toolbar>
-                <md-content layout-padding ng-controller="LeftCtrl">
-                    <md-button ng-click="close()" class="md-primary" hide-gt-md>
+                <md-content layout-padding>
+                    <md-button ng-click="vm.close()" class="md-primary" hide-gt-md>
                         Close Sidenav Left
                     </md-button>
                     <p hide show-gt-md>
@@ -49,35 +49,14 @@
                             The right sidenav will focus on a specific child element.
                         </p>
                         <div>
-                            <md-button ng-click="toggleLeft()" class="md-primary" hide-gt-md>
+                            <md-button ng-click="vm.toggleLeft()" class="md-primary" hide-gt-md>
                                 Toggle left
-                            </md-button>
-                        </div>
-                        <div>
-                            <md-button ng-click="toggleRight()" ng-hide="isOpenRight()" class="md-primary">
-                                Toggle right
                             </md-button>
                         </div>
                     </div>
                     <div flex></div>
                 </md-content>
             </div>
-            <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
-                <md-toolbar class="md-theme-light">
-                    <h1 class="md-toolbar-tools">Sidenav Right</h1>
-                </md-toolbar>
-                <md-content ng-controller="RightCtrl" layout-padding>
-                    <form>
-                        <md-input-container>
-                            <label for="testInput">Test input</label>
-                            <input type="text" id="testInput" ng-model="data" md-autofocus>
-                        </md-input-container>
-                    </form>
-                    <md-button ng-click="close()" class="md-primary">
-                        Close Sidenav Right
-                    </md-button>
-                </md-content>
-            </md-sidenav>
         </section>
     </div>
 
@@ -89,7 +68,7 @@
     <script src="lib/svg-assets-cache.js/svg-assets-cache.js"></script>
     <script src="lib/angular-material/angular-material.js"></script>
     <script src="app/core/techtalkers.core.js"></script>
-
+    <script src="app/core/common/common.controller.js"></script>
 </body>
 
 </html>
