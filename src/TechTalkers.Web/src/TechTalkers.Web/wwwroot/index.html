@@ -7,30 +7,33 @@
     <link rel="stylesheet" href="lib/angular-material/angular-material.css">
 </head>
 
-<body ng-app="techtalkers.core" ng-cloak>
+<body ng-app="app.core" ng-cloak>
 
     <div ng-controller="CommonController as vm" layout="column" layout-fill ng-cloak>
         <section layout="row" flex>
             <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
                 <md-toolbar class="md-theme-indigo">
-                    <h1 class="md-toolbar-tools" layout-align="center center">Tech Talkers</h1>
+                    <h1 class="md-toolbar-tools" layout-align="center center">App Name</h1>
                 </md-toolbar>
-                <md-content layout-padding>
-                    <md-button ng-click="vm.close()" class="md-primary" hide-gt-md>
-                        Close Sidenav Left
-                    </md-button>
-                    <p hide show-gt-md>
-                        This sidenav is locked open on your device. To go back to the default behavior, narrow your display.
-                    </p>
+                <md-content>
+                    <md-list ng-cloak>
+                        <md-list-item ng-href="#contacts">
+                            <md-icon md-svg-icon="communication:contacts"></md-icon>
+                            <p>Contacts</p>
+                        </md-list-item>
+                        <md-list-item ng-href="#about">
+                            <md-icon md-svg-icon="communication:live-help"></md-icon>
+                            <p>About</p>
+                        </md-list-item>
+                    </md-list>
                 </md-content>
             </md-sidenav>
             <div flex layout="column">
                 <md-toolbar class="md-hue-2">
                     <div class="md-toolbar-tools">
-                        <md-button class="md-icon-button" aria-label="Settings" ng-disabled="true">
+                        <md-button class="md-icon-button" aria-label="Settings" ng-click="vm.toggleLeft()">
                             <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
                         </md-button>
-                        <h2><span>Toolbar with Disabled/Enabled Icon Buttons</span></h2>
                         <span flex></span>
                         <md-button class="md-icon-button" aria-label="Favorite">
                             <md-icon md-svg-icon="img/icons/favorite.svg" style="color: greenyellow;"></md-icon>
@@ -41,20 +44,7 @@
                     </div>
                 </md-toolbar>
                 <md-content flex layout-padding>
-                    <div layout="column" layout-align="top center">
-                        <p>
-                            The left sidenav will 'lock open' on a medium (>=960px wide) device.
-                        </p>
-                        <p>
-                            The right sidenav will focus on a specific child element.
-                        </p>
-                        <div>
-                            <md-button ng-click="vm.toggleLeft()" class="md-primary" hide-gt-md>
-                                Toggle left
-                            </md-button>
-                        </div>
-                    </div>
-                    <div flex></div>
+                    <ng-view></ng-view>
                 </md-content>
             </div>
         </section>
@@ -65,10 +55,14 @@
     <script src="lib/angular-animate/angular-animate.js"></script>
     <script src="lib/angular-aria/angular-aria.js"></script>
     <script src="lib/angular-messages/angular-messages.js"></script>
-    <script src="lib/svg-assets-cache.js/svg-assets-cache.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
     <script src="lib/angular-material/angular-material.js"></script>
-    <script src="app/core/techtalkers.core.js"></script>
+    <script src="lib/svg-assets-cache.js/svg-assets-cache.js"></script>
+    <script src="app/core/app.core.js"></script>
     <script src="app/core/common/common.controller.js"></script>
+    <script src="app/core/contacts/contacts.service.js"></script>
+    <script src="app/core/contacts/contacts.controller.js"></script>
+    <script src="app/core/about/about.controller.js"></script>
 </body>
 
 </html>

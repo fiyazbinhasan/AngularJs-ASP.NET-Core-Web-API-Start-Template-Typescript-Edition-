@@ -42,7 +42,7 @@ gulp.task('compile:ts', function () {
     ]);
 });
 
-gulp.task("clean:js", function (cb) {
+gulp.task("cleanmin:js", function (cb) {
     rimraf(paths.concatJsDest, cb);
 });
 

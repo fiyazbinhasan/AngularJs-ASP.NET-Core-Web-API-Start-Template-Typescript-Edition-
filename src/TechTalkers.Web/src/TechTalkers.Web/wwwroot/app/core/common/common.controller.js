@@ -8,23 +8,6 @@ var app;
                 function CommonController($timeout, $mdSidenav, $log) {
                     var vm = this;
                     vm.toggleLeft = buildDelayedToggler('left');
-                    vm.toggleRight = buildToggler('right');
-                    vm.isOpenRight = function () {
-                        return $mdSidenav('right').isOpen();
-                    };
-                    vm.close = function () {
-                        // Component lookup should always be available since we are not using `ng-if`
-                        $mdSidenav('left').close()
-                            .then(function () {
-                            $log.debug("close LEFT is done");
-                        });
-                    };
-                    /**
-                    * @param {Function} func
-                    * @param {number} wait
-                    * @param {Object} context
-                    * @returns The debounced function.
-                    */
                     function debounce(func, wait, context) {
                         var timer;
                         return function debounced() {
@@ -36,39 +19,21 @@ var app;
                             }, wait || 10);
                         };
                     }
-                    /**
-                    * @param {string} navID
-                    * @returns The debounced function.
-                    */
-                    function buildDelayedToggler(navID) {
+                    function buildDelayedToggler(navId) {
                         return debounce(function () {
-                            $mdSidenav(navID)
+                            $mdSidenav(navId)
                                 .toggle()
                                 .then(function () {
-                                $log.debug("toggle " + navID + " is done");
+                                $log.debug("toggle " + navId + " is done");
                             });
                         }, 200, vm);
-                    }
-                    /**
-                    * @param {string} navID
-                    * @returns The sidenac service.
-                    */
-                    function buildToggler(navID) {
-                        return function () {
-                            // Component lookup should always be available since we are not using `ng-if`
-                            $mdSidenav(navID)
-                                .toggle()
-                                .then(function () {
-                                $log.debug("toggle " + navID + " is done");
-                            });
-                        };
                     }
                 }
                 CommonController.$inject = ["$timeout", "$mdSidenav", "$log"];
                 return CommonController;
             }());
             angular
-                .module("techtalkers.core")
+                .module("app.core")
                 .controller("CommonController", CommonController);
         })(common = core.common || (core.common = {}));
     })(core = app.core || (app.core = {}));
