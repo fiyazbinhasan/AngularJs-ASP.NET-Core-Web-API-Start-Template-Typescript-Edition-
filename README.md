@@ -1,6 +1,6 @@
-# A starter template for creating apps with AngularJS and ASP.NET Web API (Typescript Edition)
+# AngularJs ASP.NET Core Web API Starter Template (Typescript Edition) 
 
-This template is for making apps with AngularJS apps and ASP.NET Web API quikly. Lots of the boilerplate code is already in place. 
+A starter template for creating apps with AngularJS and ASP.NET Web API. This template is basically here for making apps with AngularJS apps and ASP.NET Web API somewhat quikly. Lots of the boilerplate code is already in place. Just clone the repo and start adding new modules. 
 
 Used frameworks and technologies:
 
