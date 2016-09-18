@@ -1,0 +1,14 @@
+﻿<md-list>
+    <md-subheader class="md-no-sticky">{{::vm.title}}</md-subheader>
+    <md-list-item class="md-2-line" ng-repeat="contact in vm.contacts">
+        <img ng-src="{{contact.image}}?25" class="md-avatar" alt="{{contact.image}}"
+             ng-if="contact.image" />
+        <div class="md-list-item-text">
+            <h3> {{ contact.name }} </h3>
+            <p> {{ contact.number }} </p>
+        </div>
+        <md-button class="md-secondary md-icon-button" aria-label="call">
+            <md-icon md-svg-icon="communication:phone"></md-icon>
+        </md-button>
+    </md-list-item>
+</md-list>

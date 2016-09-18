@@ -1,0 +1,17 @@
+﻿<md-card>
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-headline">About</span>
+            <span class="md-subhead">{{vm.text}}</span>
+        </md-card-title-text>
+        <md-card-title-media>
+            <div class="md-media-lg card-media">
+                <img ng-src="{{vm.image}}" alt="fizz" />
+            </div>
+        </md-card-title-media>
+    </md-card-title>
+    <md-card-actions layout="row" layout-align="end center">
+        <md-button ng-href="{{vm.twitterUrl}}">Twitter</md-button>
+        <md-button ng-href="{{vm.blogUrl}}">Blog</md-button>
+    </md-card-actions>
+</md-card>
